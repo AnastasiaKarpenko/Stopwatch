@@ -78,7 +78,7 @@ public class StopwatchActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle bundle) {
+    protected void onSaveInstanceState(Bundle bundle) {
         bundle.putInt("seconds", seconds);
         bundle.putBoolean("running", running);
         bundle.putBoolean("wasRunning", wasRunning);
