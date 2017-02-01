@@ -27,7 +27,7 @@ public class StopwatchActivity extends AppCompatActivity {
 
     @Override
     protected void onPause() {
-        super.onStop();
+        super.onPause();
         wasRunning = running;
         running = false;
 
@@ -35,7 +35,7 @@ public class StopwatchActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        super.onStart();
+        super.onResume();
         if(wasRunning) {
             running = true;
         }
