@@ -25,6 +25,22 @@ public class StopwatchActivity extends AppCompatActivity {
         runTimer();
     }
 
+    @Override
+    protected void onPause() {
+        super.onStop();
+        wasRunning = running;
+        running = false;
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onStart();
+        if(wasRunning) {
+            running = true;
+        }
+    }
+
     public void onClickStart(View view) {
         running = true;
 
@@ -66,21 +82,5 @@ public class StopwatchActivity extends AppCompatActivity {
         bundle.putInt("seconds", seconds);
         bundle.putBoolean("running", running);
         bundle.putBoolean("wasRunning", wasRunning);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onStop();
-        wasRunning = running;
-        running = false;
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onStart();
-        if(wasRunning) {
-            running = true;
-        }
     }
 }
